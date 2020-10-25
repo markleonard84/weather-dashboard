@@ -92,7 +92,7 @@ $('#searchBtn').click(function getWeatherData(event) {
 $("#searchBtn").click(function showFiveDayForcast(forcastData) {
     const location = locationSearch.val();
     console.log('location is', location);
-    const forcastqueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + apiKey;
+    const forcastqueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&cnt=6&units=metric&appid=" + apiKey;
     $.ajax({
         url: forcastqueryURL,
         method: "GET"
