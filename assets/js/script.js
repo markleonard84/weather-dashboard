@@ -28,7 +28,7 @@ $('#searchBtn').click(function getWeatherData(event) {
     event.preventDefault()
     const location = locationSearch.val();
     console.log('location is', location);
-    const queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=metric&appid=" + apiKey;
+    const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&units=metric&appid=" + apiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -59,7 +59,7 @@ $('#searchBtn').click(function getWeatherData(event) {
         console.log('current conditions', currentConditions);
         */
 
-        const uvApi = "http://api.openweathermap.org/data/2.5/uvi?lat=";
+        const uvApi = "https://api.openweathermap.org/data/2.5/uvi?lat=";
         const lat = weatherData.coord.lat;
         const lon = weatherData.coord.lon;
         const uvURL = uvApi + lat + "&lon=" + lon + "&appid=" + apiKey;
@@ -92,7 +92,7 @@ $('#searchBtn').click(function getWeatherData(event) {
 $("#searchBtn").click(function showFiveDayForcast(forcastData) {
     const location = locationSearch.val();
     console.log('location is', location);
-    const forcastqueryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + apiKey;
+    const forcastqueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + apiKey;
     $.ajax({
         url: forcastqueryURL,
         method: "GET"
