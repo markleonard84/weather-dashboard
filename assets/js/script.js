@@ -69,7 +69,7 @@ $('#searchBtn').click(function getWeatherData(event) {
             method: "GET"
         }).then(function(uvData) {
             console.log('UV Data', uvData);
-            console.log('UV Index', uvData.value);
+            //console.log('UV Index', uvData.value);
             $("#uvIndex").text("UV Index: " + uvData.value);
             if (uvData.value < 3) {
                 $("#uvIndex").removeClass("badge badge-warning");
@@ -91,13 +91,38 @@ $('#searchBtn').click(function getWeatherData(event) {
 
 $("#searchBtn").click(function showFiveDayForcast(forcastData) {
     const location = locationSearch.val();
-    console.log('location is', location);
+    //console.log('location is', location);
     const forcastqueryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&units=metric&appid=" + apiKey;
     $.ajax({
         url: forcastqueryURL,
         method: "GET"
     }).then(function(forcastData) {
         console.log('forcast data', forcastData);
+
+
+        const dateNow = forcastData.list[0].dt_txt;
+        //console.log('date', dateNow);
+        for (i = 0; i < forcastData.list.length; i++) {
+
+            const forcastDate = forcastData.list[i].dt_txt;
+            //console.log('forcastDate', forcastDate);
+
+            const splitDate = forcastDate.split(" ");
+            //console.log('split date', splitDate);
+            const splitDay = splitDate[0];
+            //console.log('split Day', splitDay);
+            const splitTime = splitDate[1];
+            //console.log('splitTime', splitTime);
+            if (forcastDate !== dateNow && splitTime === "12:00:00") {
+                const newForcastTemp = Math.floor(forcastData.list[i].main.temp);
+                console.log('5 day temp forcast', newForcastTemp);
+                const newForcastHumidity = forcastData.list[i].main.humidity;
+                console.log('5 day humidity forcast', newForcastHumidity);
+            }
+        }
+
+
+
 
 
 
