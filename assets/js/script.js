@@ -75,7 +75,7 @@ function showFiveDayWeatherForecast(weatherData) {
         if (forecastDate !== currentDate && dateTimestamp === "09:00:00") {
             const date = weatherData.list[i].dt_txt;
             const cardDate = date.slice(0, 10);
-            console.log('Date', cardDate);
+            //
             const temp = Math.floor(weatherData.list[i].main.temp);
             const iconName = weatherData.list[i].weather[0].icon;
             const humidity = weatherData.list[i].main.humidity + " %";
