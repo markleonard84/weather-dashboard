@@ -30,7 +30,7 @@ function showCurrentForecast(weatherData) {
     const weatherIcon = weatherData.weather[0].icon
     const cardBody = $("<div>").addClass("card-body").attr("id", "cardBody");
     const weatherIconDiv = $("<img>").attr({
-        src: "http://openweathermap.org/img/w/" + weatherIcon + ".png",
+        src: "https://openweathermap.org/img/w/" + weatherIcon + ".png",
         alt: "Weather icon",
         height: "auto",
         width: "80px",
@@ -83,7 +83,7 @@ function showFiveDayWeatherForecast(weatherData) {
             const cardBody = $("<div>").addClass("card-body");
             const cardWeatherDate = $("<h6>").addClass("card-title").text(cardDate);
             const weatherIconDiv = $("<img>").attr({
-                src: "http://openweathermap.org/img/w/" + iconName + ".png",
+                src: "https://openweathermap.org/img/w/" + iconName + ".png",
                 alt: "Weather icon",
                 height: "auto",
                 width: "60px",
